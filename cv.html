@@ -61,6 +61,20 @@
   }
 
   </style>
+  <script type="text/javascript">
+    window.onload = function() {
+      for (let i = 1; i <= 5; ++i) {
+        const doms = document.getElementsByClassName(i + '-star');
+        for (let dom of doms) {
+          let ans = '';
+          for (let j = 0; j < i; ++j) {
+            ans += '<img src="db6.png" height="30px">';
+          }
+          dom.innerHTML = ans;
+        }
+      }
+    }
+  </script>
 </head>
 
 <body style="font-family: 'Roboto'!important;">
@@ -147,45 +161,59 @@
             <tbody>
               <tr>
                 <td>R</td>
-                <td>*****</td>
+                <td>
+                  <div class="5-star">
+                    <img src="db6.png" height="30px">
+                    <img src="db6.png" height="30px">
+                    <img src="db6.png" height="30px">
+                    <img src="db6.png" height="30px">
+                    <img src="db6.png" height="30px">
+                  </div>
+                </td>
                 <td>Node.JS</td>
-                <td>*****</td>
+                <td>
+                  <div class="5-star"></div>
+                </td>
               </tr>
               <tr>
                 <td>Python</td>
-                <td>***</td>
+                <td>
+                  <div class="3-star"></div>
+                </td>
                 <td>C++</td>
-                <td>***</td>
+                <td>
+                  <div class="5-star"></div>
+                </td>
               </tr>
               <tr>
                 <td>Apache Spark</td>
-                <td>****</td>
+                <td class="4-star"></td>
                 <td>Tensor Flow</td>
-                <td>**</td>
+                <td class="2-star"></td>
               </tr>
               <tr>
                 <td>SciKit Learn</td>
-                <td>****</td>
+                <td class="4-star"></td>
                 <td>IBMCloud SDK/Watson Products</td>
-                <td>*****</td>
+                <td class="5-star"></td>
               </tr>
               <tr>
                 <td>Google Cloud SDK</td>
-                <td>****</td>
+                <td class="4-star"></td>
                 <td>AWS SDK/Sagemaker</td>
-                <td>**</td>
+                <td class="2-star"></td>
               </tr>
               <tr>
                 <td>MongoDB</td>
-                <td>****</td>
+                <td class="4-star"></td>
                 <td>PostgreSQL/MS-SQL</td>
-                <td>****</td>
+                <td class="4-star"></td>
               </tr>
               <tr>
                 <td>Apache Cassandra</td>
-                <td>***</td>
+                <td class="3-star"></td>
                 <td>Apache CouchDB/IBM Cloudant</td>
-                <td>****</td>
+                <td class="4-star"></td>
               </tr>
             </tbody>
           </table>
