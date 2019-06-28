@@ -56,8 +56,27 @@
     .side-bar {
       background-color: rgb(41, 62, 73);
       color: white;
-      height: 250vh;
+      height: 300vh;
     }
+  }
+
+  .small {
+    font-size: 14px;
+  }
+
+  .heading-column {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table.skill-table td,table.skill-table th {
+    color: white!important;
+    border-top: none!important;
+    border-left: none!important;
+    border-right: none!important;
+    border-bottom: none!important;
+    font-weight: normal!important;
+    font-size: 22px!important;
   }
 
   </style>
@@ -68,13 +87,28 @@
         for (let dom of doms) {
           let ans = '';
           for (let j = 0; j < i; ++j) {
-            ans += '<img src="db6.png" height="30px">';
+            ans += '<img src="db3.png" height="30px">';
           }
           dom.innerHTML = ans;
         }
       }
     }
+
+    function toggleDetails(that) {
+      const more_details_link = document.getElementById('more_details_link');
+      more_details_link.innerHTML = more_details_link.innerHTML === 'More Details' ? 'Less Details' : 'More Details';
+      const doms = document.getElementsByClassName('project-details');
+      for (let dom of doms) {
+        const currentValue = dom.getAttribute('hidden');
+        if (currentValue === null) {
+          dom.setAttribute('hidden', '');
+        } else {
+          dom.removeAttribute('hidden');
+        }
+      }
+    }
   </script>
+  <script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
 </head>
 
 <body style="font-family: 'Roboto'!important;">
@@ -95,6 +129,25 @@
         <br>
         <div style="font-size: 10px;">&nbsp;</div>
         <p class="normal">Phoenixseestrße 23, 44263 Dortmund, Germany</p>
+        <br>
+        <br>
+        <h1><b>Top Skills</b></h1>
+        <table class="table skill-table">
+          <tbody>
+            <tr>
+              <td>R</td>
+              <td>Apache Spark</td>
+            </tr>
+            <tr>
+              <td>Node.JS</td>
+              <td>MongoDB</td>
+            </tr>
+            <tr>
+              <td>C++</td>
+              <td>Kubernetes</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
     <div class="col-md-8">
@@ -114,13 +167,144 @@
             <div>
               <h3>Data Scientist, Synaigy GmbH, Germany</h3>
               <div class="normal date">April, 2016 - Present (3 years 3 months)</div>
-              <div class="normal">Tech-Lead of 4 persons' Data Science, Engineering and Analytics team.</div>
-              <div class="normal">Projects:</div>
-              <li class="normal">Racquet Finder, user classification and product recommendation engine (<a href="href=https://www.head.com/en-IC/racquet-finder">HEAD, tennis racquet finder</a>)</li>
-              <li class="normal">Data Lake, Data Enrichment and Imputation for Electro-wholesaler with BigData frameworks</li>
-              <li class="normal">Development of production-ready, real-time and BigData frameworks based Cross-Selling, Up-Selling, Market Basket Analysis and Alternative Product Recommendation Systems</li>
-              <li class="normal">Email Classification and action automation for a leading E-commerce organization</li>
-              <li class="normal">Development of Data Visualization tools and dashboards</li>
+              <div class="normal">Tech-Lead of Data Science, Engineering and AI team, consisting of 2 Data Scientists, 1 Data Engineer and 1 Full Stack Developer.</div>
+              <br>
+              <h4>Projects</h4>
+              <div class="normal"><a href="#" onclick="toggleDetails(this);" class="small" id="more_details_link">More Details</a></div>
+              <li class="normal">
+                Racquet Finder, user classification and product recommendation engine (<a href="https://www.head.com/en-IC/racquet-finder">HEAD, tennis racquet finder</a>)
+                <div class="project-details" hidden="">
+                  <br>
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td class="heading-column">Subject</td>
+                        <td>Classification</td>
+                        <td>Collaborative Filtering Recommender System</td>
+                      </tr>
+                      <tr>
+                        <td class="heading-column">Algorithms/Methods</td>
+                        <td>Multi Layer Perceptron - Feed Forward Neural Network</td>
+                        <td>Association Rule Mining</td>
+                      </tr>
+                      <tr>
+                        <td class="heading-column">Tools and Frameworks</td>
+                        <td>IBM Watson, SciKit Learn, IBM Cloudant, IBM DB2</td>
+                        <td>Node.JS, R</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <hr align="left" width="50%" style="background: black;">
+                  <hr align="left" width="50%" style="background: black;">
+                  <br>
+                </div>
+              </li>
+              <li class="normal">
+                Data Lake, Data Enrichment and Imputation for Electro-wholesaler with BigData frameworks
+                <div class="project-details" hidden="">
+                  <br>
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td class="heading-column">Subject</td>
+                        <td>Classification</td>
+                        <td>Imputation</td>
+                      </tr>
+                      <tr>
+                        <td class="heading-column">Algorithms/Methods</td>
+                        <td>Logistic Regression</td>
+                        <td>Polynomial Regression, Multi Layer Perceptron, Text-Mining (Hashing, Tokening, n-grams, IDF)</td>
+                      </tr>
+                      <tr>
+                        <td class="heading-column">Tools and Frameworks</td>
+                        <td colspan="2">Apache Spark (pyspark), MongoDB, Kubernetes, Node.JS, IBM Cloud</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <hr align="left" width="50%" style="background: black;">
+                  <hr align="left" width="50%" style="background: black;">
+                  <br>
+                </div>
+              </li>
+              <li class="normal">
+                Development of production-ready, real-time and BigData frameworks based Cross-Selling, Up-Selling, Market Basket Analysis and Alternative Product Recommendation Systems
+                <div class="project-details" hidden="">
+                  <br>
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td class="heading-column">Subject</td>
+                        <td colspan="2">Real-Time Recommendation Engine as a REST API / Web-Service</td>
+                      </tr>
+                      <tr>
+                        <td class="heading-column">Algorithms/Methods</td>
+                        <td colspan="2">Customized Algorithm for Association Rule Mining: FPGrowth, Apriori</td>
+                      </tr>
+                      <tr>
+                        <td class="heading-column">Tools and Frameworks</td>
+                        <td colspan="2">Node.JS, C++, MongoDB, Kubernetes, IBM Cloud</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <hr align="left" width="50%" style="background: black;">
+                  <hr align="left" width="50%" style="background: black;">
+                  <br>
+                </div>
+              </li>
+              <li class="normal">
+                Email Classification and Customer Service Automation for a leading E-commerce organization
+                <div class="project-details" hidden="">
+                  <br>
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td class="heading-column">Subject</td>
+                        <td>Text Mining and Classification</td>
+                        <td>Online Classification System as a REST API / Web-Service</td>
+                      </tr>
+                      <tr>
+                        <td class="heading-column">Algorithms/Methods</td>
+                        <td colspan="2">Regular Expression based modeling, Random Forest, Multi Layer Perceptron</td>
+                      </tr>
+                      <tr>
+                        <td class="heading-column">Tools and Frameworks</td>
+                        <td>Watson Knowledge Studio, R, PYthon, Node.JS</td>
+                        <td>Sci-Kit Learn, Jupyter Notebooks, Node.JS, C++, MongoDB, Kubernetes, IBM Watson, Google Cloud, Amazon Alexa Skill</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <hr align="left" width="50%" style="background: black;">
+                  <hr align="left" width="50%" style="background: black;">
+                  <br>
+                </div>
+              </li>
+              <li class="normal">
+                Development of Data Visualization tools and dashboards for internationally connected sewing machines (Industry 4.0)
+                <div class="project-details" hidden="">
+                  <br>
+                  <table class="table">
+                    <tbody>
+                      <tr>
+                        <td class="heading-column">Subject</td>
+                        <td>Forecasting and Prediction</td>
+                        <td>Statistics and Data Visualization</td>
+                      </tr>
+                      <tr>
+                        <td class="heading-column">Algorithms/Methods</td>
+                        <td colspan="2">Time-Series Analysis and Forecasting: ARIMA, Temporal Hierarchical Forecasting, Trend Analysis</td>
+                      </tr>
+                      <tr>
+                        <td class="heading-column">Tools and Frameworks</td>
+                        <td></td>
+                        <td>ggplot2, plotly, d3.js, Angular2, HTML/JS/CSS</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <hr align="left" width="50%" style="background: black;">
+                  <hr align="left" width="50%" style="background: black;">
+                  <br>
+                </div>
+              </li>
             </div>
             <br>
             <div>
@@ -140,9 +324,9 @@
             </div>
             <br>
             <div>
-              <h3>Database Engineer, Prasad GWK Pvt. Ltd., India</h3>
+              <h3>Engineer (Database and Planning), Prasad GWK Pvt. Ltd., India</h3>
               <div class="normal date">February, 2013 - July, 2013 (6 months)</div>
-              <div class="normal">Integration of several ERP system databases for analysis and reporting</div>
+              <div class="normal">Integration of several ERP system databases for analysis, reporting and procurement forecasting</div>
             </div>
             <br>
             <div>
@@ -161,29 +345,15 @@
             <tbody>
               <tr>
                 <td>R</td>
-                <td>
-                  <div class="5-star">
-                    <img src="db6.png" height="30px">
-                    <img src="db6.png" height="30px">
-                    <img src="db6.png" height="30px">
-                    <img src="db6.png" height="30px">
-                    <img src="db6.png" height="30px">
-                  </div>
-                </td>
+                <td class="5-star"></td>
                 <td>Node.JS</td>
-                <td>
-                  <div class="5-star"></div>
-                </td>
+                <td class="5-star"></td>
               </tr>
               <tr>
                 <td>Python</td>
-                <td>
-                  <div class="3-star"></div>
-                </td>
+                <td class="3-star"></td>
                 <td>C++</td>
-                <td>
-                  <div class="5-star"></div>
-                </td>
+                <td class="5-star"></td>
               </tr>
               <tr>
                 <td>Apache Spark</td>
@@ -213,6 +383,18 @@
                 <td>Apache Cassandra</td>
                 <td class="3-star"></td>
                 <td>Apache CouchDB/IBM Cloudant</td>
+                <td class="4-star"></td>
+              </tr>
+              <tr>
+                <td>Docker Container</td>
+                <td class="4-star"></td>
+                <td>Kubernetes</td>
+                <td class="4-star"></td>
+              </tr>
+              <tr>
+                <td>Type Script</td>
+                <td class="2-star"></td>
+                <td>HTML/JS/CSS</td>
                 <td class="4-star"></td>
               </tr>
             </tbody>
