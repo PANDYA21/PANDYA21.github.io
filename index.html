@@ -4,7 +4,17 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bhaumik Pandya</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+  <meta charset="utf-8">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/grid/">
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Custom styles for this template -->
+  <link href="https://getbootstrap.com/docs/4.3/examples/grid/grid.css" rel="stylesheet">
+
+  <!-- custom -->
   <style type="text/css">
   @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
@@ -50,6 +60,9 @@
       background-color: rgb(41, 62, 73);
       color: white;
     }
+    .db-icon {
+      height: 25px!important;
+    }
   }
   @media only screen and (min-width: 601px) {
     /*PC screen*/
@@ -83,6 +96,24 @@
     overflow-x: scroll;
   }
 
+  .below-padding-line {
+    padding: 0.75rem;
+    border-bottom: solid;
+    border-bottom-color: lightgrey;
+    border-bottom-width: 1px;
+  }
+
+  .row-no-margin {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .custom-padding {
+    padding: 0.75rem;
+  }
+
+  @media print { body { -webkit-print-color-adjust: exact; } }
+
   </style>
   <script type="text/javascript">
     window.onload = function() {
@@ -91,7 +122,7 @@
         for (let dom of doms) {
           let ans = '';
           for (let j = 0; j < i; ++j) {
-            ans += '<img src="db3.png" height="30px">';
+            ans += '<img src="db3.png" class="db-icon" height="30px">';
           }
           dom.innerHTML = ans;
         }
@@ -138,7 +169,15 @@
         <br>
         <br>
         <h1><b>Top Skills</b></h1>
-        <table class="table skill-table">
+        <div class="row row-no-margin">
+          <div class="col-6 col-sm-12 col-lg-6 custom-padding">R</div>
+          <div class="col-6 col-sm-12 col-lg-6 custom-padding">Apache Spark</div>
+          <div class="col-6 col-sm-12 col-lg-6 custom-padding">Node.JS</div>
+          <div class="col-6 col-sm-12 col-lg-6 custom-padding">MongoDB</div>
+          <div class="col-6 col-sm-12 col-lg-6 custom-padding">C++</div>
+          <div class="col-6 col-sm-12 col-lg-6 custom-padding">Kubernetes</div>
+        </div>
+        <!-- <table class="table skill-table">
           <tbody>
             <tr>
               <td>R</td>
@@ -153,7 +192,7 @@
               <td>Kubernetes</td>
             </tr>
           </tbody>
-        </table>
+        </table> -->
       </div>
     </div>
     <div class="col-md-8">
@@ -163,7 +202,7 @@
           <div id="summary">
             <h1>Summary</h1>
             <div class="normal">
-              <p>Data Scientist with strong programming and mathematics background and 4+ years of experience using classification, clustering, predictive modeling and text-mining to solve challenging business problems. Have developed open-source packages for data science with Node.JS and passionate about neural networks and association rule learning. Love playing with data.</p>
+              <p>Data Scientist with strong programming and mathematics background and 4+ years of experience using classification, clustering, predictive modeling and text-mining to solve challenging business problems. Have developed/contributed to open-source packages for data science with Node.JS, R and C++ and passionate about neural networks and association rule learning. Love playing with data.</p>
             </div>
             <hr align="left" width="100%">
             <br>
@@ -348,7 +387,45 @@
         <div id="tools">
           <h1>Tools, Frameworks and Programming Languages</h1>
           <br>
-          <table class="table">
+          <div class="row row-no-margin">
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line">R</div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line 5-star"></div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line">Node.JS</div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line 5-star"></div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line">Python</div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line 3-star"></div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line">C++</div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line 5-star"></div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line">Type Script</div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line 2-star"></div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line">HTML/JS/CSS</div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line 4-star"></div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line">Apache Spark</div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line 4-star"></div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line">Tensor Flow</div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line 2-star"></div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line">SciKit Learn</div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line 4-star"></div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line">IBMCloud SDK/Watson Products</div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line 5-star"></div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line">Google Cloud SDK</div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line 4-star"></div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line">AWS SDK/Sagemaker</div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line 2-star"></div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line">MongoDB</div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line 4-star"></div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line">PostgreSQL/MS-SQL</div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line 4-star"></div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line">Apache Cassandra</div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line 2-star"></div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line">Apache CouchDB/IBM Cloudant</div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line 4-star"></div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line">Docker</div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line 4-star"></div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line">Kubernetes</div>
+            <div class="col-6 col-sm-6 col-lg-3 below-padding-line 4-star"></div>
+          </div>
+          <!-- <table class="table">
             <tbody>
               <tr>
                 <td>R</td>
@@ -405,7 +482,7 @@
                 <td class="4-star"></td>
               </tr>
             </tbody>
-          </table>
+          </table> -->
           <hr align="left" width="100%">
           <br>
         </div>
