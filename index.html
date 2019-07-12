@@ -54,10 +54,15 @@
     font-style: italic;
   }
 
+  .side-bar {
+    background-color: #293E49;
+    color: white;
+  }
+
   @media only screen and (max-width: 600px) {
     /*Mobile screen*/
     .side-bar {
-      background-color: rgb(41, 62, 73);
+      background-color: #293E49; /*rgb(41, 62, 73);*/
       color: white;
     }
     .db-icon {
@@ -67,7 +72,7 @@
   @media only screen and (min-width: 601px) {
     /*PC screen*/
     .side-bar {
-      background-color: rgb(41, 62, 73);
+      background-color: #293E49; /*rgb(41, 62, 73);*/
       color: white;
       height: 450vh;
     }
@@ -112,10 +117,47 @@
     padding: 0.75rem;
   }
 
-  @media print { body { -webkit-print-color-adjust: exact; } }
+  @page {
+    margin: 0;
+  }
+
+  .hide-when-printing {
+    display: block!important;
+  }
+
+  .show-when-printing {
+    display: none!important;
+  }
+
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact;
+    }
+
+    .hide-when-printing {
+      display: none!important;
+    }
+
+    .show-when-printing {
+      display: block!important;
+      height: 80px!important;
+    }
+
+    .side-bar {
+      height: 300vh;
+    }
+  }
 
   </style>
   <script type="text/javascript">
+    window.addEventListener("beforeprint", function () {
+      console.log('Before print executed');
+      const more_details_link = document.getElementById('more_details_link');
+      if (more_details_link.innerHTML === 'Less Details') {
+        more_details_link.onclick();
+      }
+    });
+
     window.onload = function() {
       for (let i = 1; i <= 5; ++i) {
         const doms = document.getElementsByClassName(i + '-star');
@@ -149,6 +191,7 @@
   <div class="row">
     <div class="col-md-4 side-bar">
       <div class="row" style="height: 60px;">&nbsp;</div>
+      <div class="row show-when-printing"></div>
       <div class="col-md-12" style="padding-left: 60px!important;">
         <h1><b>Bhaumik Pandya</b></h1>
         <div>
@@ -177,26 +220,11 @@
           <div class="col-6 col-sm-12 col-lg-6 custom-padding">C++</div>
           <div class="col-6 col-sm-12 col-lg-6 custom-padding">Kubernetes</div>
         </div>
-        <!-- <table class="table skill-table">
-          <tbody>
-            <tr>
-              <td>R</td>
-              <td>Apache Spark</td>
-            </tr>
-            <tr>
-              <td>Node.JS</td>
-              <td>MongoDB</td>
-            </tr>
-            <tr>
-              <td>C++</td>
-              <td>Kubernetes</td>
-            </tr>
-          </tbody>
-        </table> -->
       </div>
     </div>
     <div class="col-md-8">
       <div class="row" style="height: 60px;">&nbsp;</div>
+      <div class="row show-when-printing"></div>
       <div class="col-md-12" style="padding-right: 60px;">
         <div>
           <div id="summary">
@@ -216,7 +244,7 @@
               <div class="normal">Tech-Lead of Data Science, Engineering and AI team, consisting of 2 Data Scientists, 1 Data Engineer and 1 Full Stack Developer.</div>
               <br>
               <h4><b>Projects</b></h4>
-              <div class="normal"><a href="#" onclick="toggleDetails(this);" class="small" id="more_details_link">More Details</a></div>
+              <div class="normal"><a href="#" onclick="toggleDetails(this);" class="small hide-when-printing" id="more_details_link">More Details</a></div>
               <li class="normal">
                 Racquet Finder, user classification and product recommendation engine, achieving a 20% of improvement in sales (<a href="https://www.head.com/en-IC/racquet-finder">HEAD, tennis racquet finder</a>)
                 <div class="project-details" hidden="">
@@ -368,7 +396,10 @@
                 Internship in the filed of data analysis and data mining including the tasks such as: Automation scripts of data preparation from error logs, Error distribution in several connected systems, Data Visualization with Shiny App in R (Shiny, Shinydashboard, RStusio)
               </div>
             </div>
+            <div class="row show-when-printing"></div>
             <br>
+            <div class="row show-when-printing"></div>
+            <div class="row show-when-printing"></div>
             <div>
               <h3>Engineer (Database and Planning), Prasad GWK Pvt. Ltd., India</h3>
               <div class="normal date">February, 2013 - July, 2013 (6 months)</div>
@@ -420,69 +451,16 @@
             <div class="col-6 col-sm-6 col-lg-3 below-padding-line 2-star"></div>
             <div class="col-6 col-sm-6 col-lg-3 below-padding-line">Apache CouchDB/IBM Cloudant</div>
             <div class="col-6 col-sm-6 col-lg-3 below-padding-line 4-star"></div>
+          </div>
+          <div class="row show-when-printing"></div>
+          <div class="row show-when-printing"></div>
+          <div class="row show-when-printing"></div>
+          <div class="row row-no-margin">
             <div class="col-6 col-sm-6 col-lg-3 below-padding-line">Docker</div>
             <div class="col-6 col-sm-6 col-lg-3 below-padding-line 4-star"></div>
             <div class="col-6 col-sm-6 col-lg-3 below-padding-line">Kubernetes</div>
             <div class="col-6 col-sm-6 col-lg-3 below-padding-line 4-star"></div>
           </div>
-          <!-- <table class="table">
-            <tbody>
-              <tr>
-                <td>R</td>
-                <td class="5-star"></td>
-                <td>Node.JS</td>
-                <td class="5-star"></td>
-              </tr>
-              <tr>
-                <td>Python</td>
-                <td class="3-star"></td>
-                <td>C++</td>
-                <td class="5-star"></td>
-              </tr>
-              <tr>
-                <td>Type Script</td>
-                <td class="2-star"></td>
-                <td>HTML/JS/CSS</td>
-                <td class="4-star"></td>
-              </tr>
-              <tr>
-                <td>Apache Spark</td>
-                <td class="4-star"></td>
-                <td>Tensor Flow</td>
-                <td class="2-star"></td>
-              </tr>
-              <tr>
-                <td>SciKit Learn</td>
-                <td class="4-star"></td>
-                <td>IBMCloud SDK/Watson Products</td>
-                <td class="5-star"></td>
-              </tr>
-              <tr>
-                <td>Google Cloud SDK</td>
-                <td class="4-star"></td>
-                <td>AWS SDK/Sagemaker</td>
-                <td class="2-star"></td>
-              </tr>
-              <tr>
-                <td>MongoDB</td>
-                <td class="4-star"></td>
-                <td>PostgreSQL/MS-SQL</td>
-                <td class="4-star"></td>
-              </tr>
-              <tr>
-                <td>Apache Cassandra</td>
-                <td class="2-star"></td>
-                <td>Apache CouchDB/IBM Cloudant</td>
-                <td class="4-star"></td>
-              </tr>
-              <tr>
-                <td>Docker</td>
-                <td class="4-star"></td>
-                <td>Kubernetes</td>
-                <td class="4-star"></td>
-              </tr>
-            </tbody>
-          </table> -->
           <hr align="left" width="100%">
           <br>
         </div>
