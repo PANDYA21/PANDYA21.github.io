@@ -9,6 +9,9 @@
   <meta charset="utf-8">
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/grid/">
 
+  <!-- momentjs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
+
   <!-- Bootstrap core CSS -->
   <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Custom styles for this template -->
@@ -169,6 +172,25 @@
           dom.innerHTML = ans;
         }
       }
+
+      setSynaigyDuration();
+    }
+
+    function setSynaigyDuration() {
+      let a = moment(Date.now());
+      let b = moment(moment('20160412', 'YYYYMMDD'));
+
+      let years = a.diff(b, 'year');
+      b.add(years, 'years');
+
+      let months = a.diff(b, 'months');
+      b.add(months, 'months');
+
+      // let days = a.diff(b, 'days');
+
+      const ans = (years + ' years ' + months + ' months');
+      document.getElementById('current_job_duration').innerHTML += 
+        ' (' + ans + ')';
     }
 
     function toggleDetails(that) {
@@ -240,7 +262,9 @@
             <br>
             <div>
               <h3>Data Scientist, Synaigy GmbH, Germany</h3>
-              <div class="normal date">April, 2016 - Present (3 years 3 months)</div>
+              <div class="normal date">
+                <p id="current_job_duration">April, 2016 - Present</p>
+              </div>
               <div class="normal">Tech-Lead of Data Science, Engineering and AI team, consisting of 2 Data Scientists, 1 Data Engineer and 1 Full Stack Developer.</div>
               <br>
               <h4><b>Projects</b></h4>
