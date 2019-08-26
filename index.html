@@ -77,7 +77,7 @@
     .side-bar {
       background-color: #293E49; /*rgb(41, 62, 73);*/
       color: white;
-      height: 450vh;
+      height: 700vh;
     }
   }
 
@@ -162,6 +162,9 @@
     });
 
     window.onload = function() {
+      // set default more details
+      document.getElementById('more_details_link').onclick();
+      // set db icons
       for (let i = 1; i <= 5; ++i) {
         const doms = document.getElementsByClassName(i + '-star');
         for (let dom of doms) {
@@ -299,6 +302,11 @@
                         <td>IBM Watson, SciKit Learn, IBM Cloudant, IBM DB2</td>
                         <td>Node.JS, R</td>
                       </tr>
+                      <tr>
+                        <td class="heading-column">Agile Methods</td>
+                        <td>Scrum</td>
+                        <td>Scrum</td>
+                      </tr>
                     </tbody>
                   </table>
                   <hr align="left" width="50%" style="background: black;">
@@ -326,6 +334,11 @@
                         <td class="heading-column">Tools & Frameworks</td>
                         <td colspan="2">Apache Spark (pyspark), MongoDB, Kubernetes, Node.JS, IBM Cloud</td>
                       </tr>
+                      <tr>
+                        <td class="heading-column">Agile Methods</td>
+                        <td>Kanban</td>
+                        <td>Scrum</td>
+                      </tr>
                     </tbody>
                   </table>
                   <hr align="left" width="50%" style="background: black;">
@@ -350,6 +363,10 @@
                       <tr>
                         <td class="heading-column">Tools & Frameworks</td>
                         <td colspan="2">Node.JS, C++, MongoDB, Kubernetes, IBM Cloud</td>
+                      </tr>
+                      <tr>
+                        <td class="heading-column">Agile Methods</td>
+                        <td colspan="2">Scrumban</td>
                       </tr>
                     </tbody>
                   </table>
@@ -378,6 +395,10 @@
                         <td>Watson Knowledge Studio, R, PYthon, Node.JS</td>
                         <td>Sci-Kit Learn, Jupyter Notebooks, Node.JS, C++, MongoDB, Kubernetes, IBM Watson, Google Cloud, Amazon Alexa Skill</td>
                       </tr>
+                      <tr>
+                        <td class="heading-column">Agile Methods</td>
+                        <td colspan="2">Scrum</td>
+                      </tr>
                     </tbody>
                   </table>
                   <hr align="left" width="50%" style="background: black;">
@@ -404,6 +425,10 @@
                         <td class="heading-column">Tools & Frameworks</td>
                         <td>R, PostgreSQL, Node.JS</td>
                         <td>ggplot2, plotly, shiny (R), chartist.js, Angular2, HTML/JS/CSS</td>
+                      </tr>
+                      <tr>
+                        <td class="heading-column">Agile Methods</td>
+                        <td colspan="2">Scrum</td>
                       </tr>
                     </tbody>
                   </table>
